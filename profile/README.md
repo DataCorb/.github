@@ -29,11 +29,24 @@ DataCorb Platform
   - Gestão de planos e recursos
   - Monitoramento de uso
 
-### Fluxo de Autenticação
+### Fluxo de Autenticação e Controle de Licenças
 1. Cliente acessa seu nó
 2. Frontend solicita validação ao servidor de licenças
 3. Servidor valida licença e retorna permissões
 4. Frontend carrega recursos baseado nas permissões
+
+### Sistema de Prazo Extra
+- **Prazo Extra**: 10 dias após vencimento da licença
+- **Monitoramento**: Verificação diária do status da licença
+- **Ação Automática**: Desligamento dos serviços após prazo extra
+- **Bloqueio**: Cliente não consegue mais acessar a plataforma
+
+### Fluxo de Desligamento
+1. Licença vence
+2. Sistema mantém acesso por mais 10 dias
+3. Após 10 dias, serviços são desligados automaticamente
+4. Cliente perde acesso total à plataforma
+5. Notificação enviada ao cliente sobre suspensão
 
 ## 🎯 Estrutura de Nós por Cliente
 
@@ -119,12 +132,14 @@ cliente-xyz/
 - HTTPS obrigatório
 - Rate limiting
 - Logs de auditoria
+- Desligamento automático de serviços
 
 ### Controle de Acesso
 - Validação de licença por requisição
 - Controle de recursos por plano
 - Sessões com timeout
 - Logout automático
+- Bloqueio após prazo extra de 10 dias
 
 ## 📊 Monitoramento
 
@@ -133,6 +148,8 @@ cliente-xyz/
 - Performance das APIs
 - Disponibilidade dos serviços
 - Logs de erro e acesso
+- Status de licenças e prazos
+- Histórico de desligamentos automáticos
 
 ## 📄 Licença
 
